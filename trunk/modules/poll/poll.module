@@ -647,8 +647,9 @@ function poll_block_latest_poll_view($node) {
   $node->teaser = '';
 
   $links = array();
+  $links[] = array('title' => t('Older polls'), 'href' => 'poll', 'attributes' => array('title' => t('View the list of polls on this site.')));
   if ($node->allowvotes) {
-    $links[] = array('title' => t('VER RESULTADOS'), 'href' => 'node/' . $node->nid . '/results', 'attributes' => array('title' => t('View the current poll results.')));
+    $links[] = array('title' => t('Results'), 'href' => 'node/' . $node->nid . '/results', 'attributes' => array('title' => t('View the current poll results.')));
   }
 
   $node->links = $links;
@@ -726,7 +727,7 @@ function poll_view_voting($form, &$form_state, $node, $block = FALSE) {
 
   $form['vote'] = array(
     '#type' => 'submit',
-    '#value' => t('ENVIAR'),
+    '#value' => t('Vote'),
     '#submit' => array('poll_vote'),
   );
 
@@ -737,6 +738,7 @@ function poll_view_voting($form, &$form_state, $node, $block = FALSE) {
   // Set form caching because we could have multiple of these forms on
   // the same page, and we want to ensure the right one gets picked.
   $form_state['cache'] = TRUE;
+
   // Provide a more cleanly named voting form theme.
   $form['#theme'] = 'poll_vote';
   return $form;
@@ -815,7 +817,7 @@ function poll_view_results($node, $view_mode, $block = FALSE) {
   // Make sure that choices are ordered by their weight.
   uasort($node->choice, 'drupal_sort_weight');
 
-  // Count the votes and find the maximum
+  // Count the votes and find the maximum.
   $total_votes = 0;
   $max_votes = 0;
   foreach ($node->choice as $choice) {

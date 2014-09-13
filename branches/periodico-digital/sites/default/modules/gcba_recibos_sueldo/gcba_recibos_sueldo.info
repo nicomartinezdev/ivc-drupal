@@ -1,6 +1,0 @@
-;$Id$
-name = Recibos de Sueldo GCBA
-description = "Modulo para mostrar los recibos de sueldo de los empleados del Gobierno de la Ciudad de Buenos Aires."
-core = 7.x
-package = GCBA
-files[] = gcba_recibos_sueldo.module

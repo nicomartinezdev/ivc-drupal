@@ -85,178 +85,46 @@
  * @see html.tpl.php
  */
 ?>
-
-<link rel="stylesheet" href="/themes/bartik/css/ivc-style.css" />
-
-<style>
-/* Todos estos estilos tendrian que estar en ivc-style.css porque afectan a todas las paginas */
-
-#header {
-	background: url("/themes/bartik/images/fondo.png") repeat-x;	
-}
-
-.headerLogo {
-	<?php if ($logged_in): ?>
-	min-height: 177px;
-	<?php else: ?>
-	min-height: 143px;
-	margin-bottom: 30px;
-	<?php endif ?>
-	position: relative;
-}
-
-.headerLogo .region-header {
-	margin-right: -24px;
-}
-
-.headerLogo img {
-	margin-top: 10px;
-	margin-left: -20px;
-}
-
-.one-sidebar #content {
-	width: 770px;
-}
-
-#main {
-	width: 1024px;
-}
-
-#footer-wrapper {
-	background: url("/themes/bartik/images/fondo_footer.png") repeat-x;
-	height: 265px;
-	padding: 0;
-	background-position: center bottom;
-	
-}
-
-#footer-edificios {
-	background: url() no-repeat;
-	background-position: center;
-	height: 128px;
-	margin-top: 10px;
-}
-
-#logout-button {
-	background-color: #111115;
-	float: left;
-	padding: 5px;
-	padding-left: 10px;
-	padding-right: 10px;
-	font-size: 0.7em;
-	font-weight: bold;
-	text-transform: uppercase;
-	margin-top: 2px;
-	-khtml-border-radius: 3px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	border-radius: 3px;
-	cursor: pointer;
-	position: absolute;
-	left: 920px;
-}
-
-#logout-button a {
-	text-decoration: none;
-	color: #FFFFFF;
-}
-
-#block-search-form {
-	position: absolute;
-	left: 585px;
-}
-
-#block-views-bienvenida-usuario-block {
-	margin: 0px;
-	position: absolute;
-	left: 658px;
-	top: 105px;
-	width: 323px;
-	text-align: right;
-}
-
-#recibos-button {
-	background-color: #111115;
-	float: left;
-	padding: 5px;
-	padding-left: 10px;
-	padding-right: 10px;
-	font-size: 0.7em;
-	font-weight: bold;
-	text-transform: uppercase;
-	margin-top: 2px;
-	-khtml-border-radius: 3px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	border-radius: 3px;
-	cursor: pointer;
-	position: absolute;
-	left: 795px;
-}
-
-#recibos-button a {
-	text-decoration: none;
-	color: #FFFFFF;
-}
-
-.item-list .pager {
-	float: right;
-}
-
-.item-list .pager li {
-	float: left;
-	display: block;
-}
-
-.item-list .pager li.pager-item a {
-	color: #00458F;
-	text-decoration: none;
-}
-
-
-.item-list .pager li.pager-item, .item-list .pager li.pager-current {
-	margin-top: -1px;
-	font-weight: bold;
-	font-size: 0.85em;
-	padding-top: 0.7em;
-	padding-right: 2px;
-	padding-left: 2px;	
-}
-
-.item-list .pager li.pager-separator {
-	margin-top: -2px;
-}
-
-.item-list .pager .pager-next {
-	margin-right: 12px;
-}
-
-.item-list .pager .pager-last {
-	margin-right: 2px;
-}
-</style>
-
-<!--[if gte IE 8]><style>#main-menu-links {width: 1007px;}#main-menu-links li a {min-width: 158px;}</style><![endif]-->
-<!--[if gte IE 9]><style>.shadow_boxed {filter: none}</style><![endif]-->
-
 <div id="page-wrapper"><div id="page">
-  <div id="header" class="<?php print $secondary_menu ? 'with-secondary-menu': 'without-secondary-menu'; ?>">
-  	<div class="section clearfix headerLogo">	
+
+  <div id="header" class="<?php print $secondary_menu ? 'with-secondary-menu': 'without-secondary-menu'; ?>"><div class="section clearfix">
+
     <?php if ($logo): ?>
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
         <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
       </a>
     <?php endif; ?>
-    <?php 
-    	if ($logged_in) {
-	    	$header = render($page['header']);
-    		$header = preg_replace("!</div>$!", "<div id='recibos-button' class='rounded-corners' onclick='window.location.href=\"/recibos\"'><a href='/recibos'>Recibo de Sueldo</a></div><div id='logout-button' class='rounded-corners' onclick='window.location.href=\"/user/logout\"'><a href='/user/logout'>Logout</a></div></div>", $header);
-			print $header;
-    	}
-    ?>
-  	<?php if ($logged_in): ?>
-  	<?php if ($main_menu): ?>
-      <div id="main-menu" class="section navigation">
+
+    <?php if ($site_name || $site_slogan): ?>
+      <div id="name-and-slogan"<?php if ($hide_site_name && $hide_site_slogan) { print ' class="element-invisible"'; } ?>>
+
+        <?php if ($site_name): ?>
+          <?php if ($title): ?>
+            <div id="site-name"<?php if ($hide_site_name) { print ' class="element-invisible"'; } ?>>
+              <strong>
+                <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
+              </strong>
+            </div>
+          <?php else: /* Use h1 when the content title is empty */ ?>
+            <h1 id="site-name"<?php if ($hide_site_name) { print ' class="element-invisible"'; } ?>>
+              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
+            </h1>
+          <?php endif; ?>
+        <?php endif; ?>
+
+        <?php if ($site_slogan): ?>
+          <div id="site-slogan"<?php if ($hide_site_slogan) { print ' class="element-invisible"'; } ?>>
+            <?php print $site_slogan; ?>
+          </div>
+        <?php endif; ?>
+
+      </div> <!-- /#name-and-slogan -->
+    <?php endif; ?>
+
+    <?php print render($page['header']); ?>
+
+    <?php if ($main_menu): ?>
+      <div id="main-menu" class="navigation">
         <?php print theme('links__system_main_menu', array(
           'links' => $main_menu,
           'attributes' => array(
@@ -271,9 +139,25 @@
         )); ?>
       </div> <!-- /#main-menu -->
     <?php endif; ?>
+
+    <?php if ($secondary_menu): ?>
+      <div id="secondary-menu" class="navigation">
+        <?php print theme('links__system_secondary_menu', array(
+          'links' => $secondary_menu,
+          'attributes' => array(
+            'id' => 'secondary-menu-links',
+            'class' => array('links', 'inline', 'clearfix'),
+          ),
+          'heading' => array(
+            'text' => t('Secondary menu'),
+            'level' => 'h2',
+            'class' => array('element-invisible'),
+          ),
+        )); ?>
+      </div> <!-- /#secondary-menu -->
     <?php endif; ?>
-    </div>
-  </div> <!-- /.section, /#header -->
+
+  </div></div> <!-- /.section, /#header -->
 
   <?php if ($messages): ?>
     <div id="messages"><div class="section clearfix">
@@ -289,9 +173,9 @@
 
   <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
 
-    <?php /*if ($breadcrumb): ?>
+    <?php if ($breadcrumb): ?>
       <div id="breadcrumb"><?php print $breadcrumb; ?></div>
-    <?php endif; */?>
+    <?php endif; ?>
 
     <?php if ($page['sidebar_first']): ?>
       <div id="sidebar-first" class="column sidebar"><div class="section">
@@ -299,10 +183,17 @@
       </div></div> <!-- /.section, /#sidebar-first -->
     <?php endif; ?>
 
-    <div id="content" class="column"><div class="section">      
+    <div id="content" class="column"><div class="section">
       <?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
       <a id="main-content"></a>
-      <?php if ($logged_in && $tabs): ?>
+      <?php print render($title_prefix); ?>
+      <?php if ($title): ?>
+        <h1 class="title" id="page-title">
+          <?php print $title; ?>
+        </h1>
+      <?php endif; ?>
+      <?php print render($title_suffix); ?>
+      <?php if ($tabs): ?>
         <div class="tabs">
           <?php print render($tabs); ?>
         </div>
@@ -334,15 +225,23 @@
     </div></div> <!-- /#triptych, /#triptych-wrapper -->
   <?php endif; ?>
 
+  <div id="footer-wrapper"><div class="section">
 
-  <div id="footer-wrapper">
-	<div style="width: auto; text-align:center;">
-		<img src="/themes/bartik/images/footer.png" style=" margin-top: 11px;" />
-	</div>
-	<div style="margin-left: auto; margin-right: auto; width: 960px;">  		
-  		<img src="/themes/bartik/images/logo-gcba.png" style="float: left; margin-top: -6px;"/>
-  		<img src="/themes/bartik/images/slogan-gcba.png" style="float: right; margin-top: -4px;" />
-	</div>
-  </div> <!-- /.section, /#footer-wrapper -->
+    <?php if ($page['footer_firstcolumn'] || $page['footer_secondcolumn'] || $page['footer_thirdcolumn'] || $page['footer_fourthcolumn']): ?>
+      <div id="footer-columns" class="clearfix">
+        <?php print render($page['footer_firstcolumn']); ?>
+        <?php print render($page['footer_secondcolumn']); ?>
+        <?php print render($page['footer_thirdcolumn']); ?>
+        <?php print render($page['footer_fourthcolumn']); ?>
+      </div> <!-- /#footer-columns -->
+    <?php endif; ?>
+
+    <?php if ($page['footer']): ?>
+      <div id="footer" class="clearfix">
+        <?php print render($page['footer']); ?>
+      </div> <!-- /#footer -->
+    <?php endif; ?>
+
+  </div></div> <!-- /.section, /#footer-wrapper -->
 
 </div></div> <!-- /#page, /#page-wrapper -->

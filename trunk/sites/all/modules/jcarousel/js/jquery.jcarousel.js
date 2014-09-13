@@ -114,7 +114,7 @@
             this.container.wrap('<div class=" '+ skin + '"></div>');
         }
 
-        this.buttonPrev = $('.jcarousel-prev', this.container.parent());
+        this.buttonPrev = $('.jcarousel-prev', this.container.parent().parent());
 
         if (this.buttonPrev.size() === 0 && this.options.buttonPrevHTML !== null) {
             this.buttonPrev = $(this.options.buttonPrevHTML).appendTo(this.container);
@@ -122,8 +122,7 @@
 
         this.buttonPrev.addClass(this.className('jcarousel-prev'));
 
-		console.log(this);
-        this.buttonNext = $('.jcarousel-next', this.container.parent());
+        this.buttonNext = $('.jcarousel-next', this.container.parent().parent());
 
         if (this.buttonNext.size() === 0 && this.options.buttonNextHTML !== null) {
             this.buttonNext = $(this.options.buttonNextHTML).appendTo(this.container);
@@ -289,6 +288,7 @@
                         lt = wh;
                     }
                 });
+
                 this.list.css(this.wh, wh + 'px');
                 this.list.css(this.lt, -lt + 'px');
             }
@@ -414,8 +414,9 @@
 
             this.format(e.removeClass(this.className('jcarousel-item-placeholder')), i);
 
-            var di = this.options.visible !== null ? Math.ceil(this.clipping() / this.options.visible) : null;
-            var wh = this.dimension(e, di) - old;
+            var visible = parseInt(this.options.visible),
+              di = (visible > 0) ? Math.ceil(this.clipping() / visible) : null,
+              wh = this.dimension(e, di) - old;
 
             if (i > 0 && i < this.first) {
                 this.list.css(this.lt, $jc.intval(this.list.css(this.lt)) - wh + 'px');
@@ -746,7 +747,6 @@
                 this.list.css(this.lt, p + 'px');
                 scrolled();
             } else {
-                
                 var o = !this.options.vertical ? (this.options.rtl ? {'right': p} : {'left': p}) : {'top': p};
                 // Define animation settings.
                 var settings = {

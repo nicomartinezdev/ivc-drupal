@@ -9,10 +9,11 @@ body.overlay {
   border-color: #ffffff;
 }
 #page,
-#main-wrapper {
+#main-wrapper,
+#main-menu-links li a.active,
+#main-menu-links li.active-trail a {
   background: #ffffff;
 }
-
 .tabs ul.primary li a.active {
   background-color: #ffffff;
 }
@@ -43,10 +44,10 @@ a:active {
   background-color: #f6f6f2;
   border-color: #f9f9f9;
 }
-#page-wrapper {
+#page-wrapper,
+#footer-wrapper {
   background: #292929;
 }
-
 .region-header,
 .region-header a,
 .region-header li a.active,
@@ -54,29 +55,4 @@ a:active {
 #name-and-slogan a,
 #secondary-menu-links li a {
   color: #fffeff;
-}
-
-#main-menu-links li {
-	margin-top: 3px;
-}
-
-#main-menu-links li a {
-	font-family: "gotham_mediumregular";
-	height: 27px;
-	min-width: 159px;
-	padding-left: 10px;
-	padding-right: 10px;
-}
-
-#main-menu-links li.first a {
-	font-family: "gotham_mediumregular";
-	height: 27px;
-	min-width: 50px;
-	padding-left: 10px;
-	padding-right: 10px;
-}
-
-#main-menu-links li a.active,
-#main-menu-links li.active-trail a {
-	background: #002349;
 }

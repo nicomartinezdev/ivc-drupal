@@ -37,7 +37,7 @@ fieldset legend {
 #search-block-form input.form-submit:focus,
 #search-form input.form-submit:hover,
 #search-form input.form-submit:focus {
-  background-position: center center;
+  background-position: center -25px;
 }
 .contact-form #edit-message {
   width: 75%;

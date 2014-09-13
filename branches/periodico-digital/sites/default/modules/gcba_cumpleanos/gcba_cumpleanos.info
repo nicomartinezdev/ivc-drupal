@@ -1,6 +1,0 @@
-;$Id$
-name = Cumpleanos GCBA
-description = "Modulo para mostrar los cumpleanos del mes de los empleados del Gobierno de la Ciudad de Buenos Aires."
-core = 7.x
-package = GCBA
-files[] = gcba_cumpleanos.module
