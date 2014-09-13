@@ -1,0 +1,270 @@
+/* Main Styles */
+.dotted-bottom {
+	border-bottom: dotted #b8b8b8 1px;
+}
+.dotted-top {
+	border-top: dotted #b8b8b8 1px;
+}
+
+.gcba-maincontent-home {
+	width: 358px;
+}
+
+.gcba-maincontent-section {
+	width: 723px;
+	margin-left: 2px;
+}
+
+.gcba-item-list {
+	background-color: #F6F6F6;
+	padding-top: 3px;
+}
+
+.gcba-item {
+	margin-top: 1px;
+	float: left;
+	padding-bottom: 1px;
+	padding-left: 10px;
+	padding-top: 1px;
+}
+
+.gcba-title {
+	height: 30px;
+}
+
+.seeall-link {
+	text-transform: uppercase;
+	float: right;
+	padding-top: 2px;
+	padding-right: 10px;
+	padding-left: 5px;
+	padding-bottom: 7px;
+	font-size: 0.8em;
+	color: #FFFFFF;
+	border-left: dotted #ffffff thin;
+	height: 10px;
+	margin-top: 4px;
+}
+
+.back-link, .viewall-link {
+	text-transform: uppercase;
+	float: right;
+	padding-top: 2px;
+	padding-right: 10px;
+	padding-bottom: 7px;
+	font-size: 0.8em;
+	color: #FFFFFF;
+	height: 10px;
+	margin-top: 4px;
+}
+
+.back-link-text {
+	margin-right: 17px;
+}
+
+.seeall-link a, .back-link a, .viewall-link a {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.back-link-image, .viewall-link-image {
+	padding-right: 5px;
+	cursor: pointer;
+}
+
+.subtitle {
+	font-family: "gotham_mediumregular";
+}
+
+.imagen-listado {
+	position: relative;
+}
+
+.imagen-listado .span-derecho {
+	position: absolute;
+	background: url("../images/sombreado_derecho_thumb.png") no-repeat;
+	height: 66px;
+	width: 4px;
+	top: 0px;
+	left: 69px;
+}
+
+.imagen-listado .span-izquierdo {
+	position: absolute;
+	background: url("../images/sombreado_izquierdo_thumb.png") no-repeat;
+	display: block;
+	height: 66px;
+	width: 4px;
+	top: 0px;
+	left: -6px;
+}
+
+.imagen-listado .enlarged-left-shadow {
+	height: 58px;
+	top: -4px;
+	left: -8px;
+}
+
+.imagen-listado .enlarged-right-shadow {
+	height: 58px;
+	top: -4px;
+	left: 88px;
+}
+
+.imagen-listado .span-izquierdo-medium {
+	position: absolute;
+	background: url("../images/sombreado_izquierdo_medium.png") no-repeat;
+	display: block;
+	height: 119px;
+	width: 8px;
+	top: 0px;
+	left: -8px;
+}
+
+.imagen-listado .span-derecho-medium {
+	position: absolute;
+	background: url("../images/sombreado_derecho_medium.png") no-repeat;
+	height: 119px;
+	width: 8px;
+	top: 0px;
+	left: 178px;
+}
+
+.imagen-listado .span-izquierdo-large {
+	position: absolute;
+	background: url("../images/sombreado_izquierdo_large.png") no-repeat;
+	display: block;
+	height: 182px;
+	width: 7px;
+	top: 0px;
+	left: -8px;
+}
+
+.imagen-listado .span-derecho-large {
+	position: absolute;
+	background: url("../images/sombreado_derecho_large.png") no-repeat;
+	height: 182px;
+	width: 7px;
+	top: 0px;
+	left: 274px;
+}
+
+.imagen-listado .span-izquierdo-galeria-sociales {
+	position: absolute;
+	background: url("../images/sombreado_izquierdo_galeria_sociales.png") no-repeat;
+	height: 106px;
+	width: 3px;
+	top: 0px;
+	left: -5px;
+	margin-top: -2px;
+}
+
+.imagen-listado .span-derecho-galeria-sociales {
+	position: absolute;
+	background: url("../images/sombreado_derecho_galeria_sociales.png") no-repeat;
+	height: 106px;
+	width: 3px;
+	top: 0px;
+	left: 104px;
+}
+
+.rounded-corners {
+	-khtml-border-radius: 5%;
+	-moz-border-radius: 5%;
+	-webkit-border-radius: 5%;
+	border-radius: 5%;
+}
+
+/* Sidebar specific styles */
+.sidebar .block {
+	width: 230px;
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+.gcba-sidebar-item-list-title {
+	font-size: 0.85em;
+	font-weight: bold;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+/* Beneficios */
+.shadow_boxed {
+	box-shadow: inset 1.5px 1.5px 2px #888;
+}
+
+.pane-publicidad-home {
+	line-height: 0;
+}
+
+#panel-homepage {
+	width: 765px;
+}
+
+/*Estilos comunes para fechas*/
+
+/*Principal*/
+
+.principal_block_node_day {
+	float: left;
+	color: #00458F;
+	margin-left: 6px;
+	font-weight: bold;
+	font-family: Tahoma;
+	font-size: 0.95em;
+	padding-right: 2px;
+}
+
+.principal_block_node_monthyear {
+	float: left;
+	border-left: solid 1px #CCCCCC;
+	padding-left: 3px;
+	font-family: Tahoma;
+	font-size: 0.75em;
+	margin-top: 3px;
+	height: 24px;
+}
+
+.principal_block_node_month {
+	font-weight: bold;
+	display: block;
+	margin-bottom: -5px;
+	margin-top: -3px;
+}
+
+/*Sidebar*/
+
+.sidebar_block_node_day {
+	float: left;
+	color: #fbbd00;
+	margin-left: 10px;
+	margin-top: 10px;
+	font-weight: bold;
+	font-family: Tahoma;
+	font-size: 1.05em;
+}
+
+.sidebar_block_node_monthyear {
+	float: left;
+	margin-left: 5px;
+	border-left: solid 1px #CCCCCC;
+	margin-top: 10px;
+	padding-left: 3px;
+	font-family: Tahoma;
+	font-size: 0.75em;
+}
+
+.sidebar_block_node_month {
+	font-weight: bold;
+	display: block;
+	margin-bottom: -5px;
+}
+
+
+.block-poll-size {
+	height: 217px;
+}
+

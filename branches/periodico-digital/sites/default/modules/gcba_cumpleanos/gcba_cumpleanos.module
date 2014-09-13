@@ -1,0 +1,19 @@
+<?php
+
+function gcba_cumpleanos_views_query_alter (&$view, &$query){
+	if ($view->name === "cumpleanos") {
+		$query->where[1]['conditions'][1]['field'] = "DATE_FORMAT(field_data_field_fecha_de_nacimiento.field_fecha_de_nacimiento_value, '%m') = :field_data_field_fecha_de_nacimiento_field_fecha_de_nacimiento_value";
+		$query->where[1]['conditions'][1]['value'][':field_data_field_fecha_de_nacimiento_field_fecha_de_nacimiento_value'] = date('m');
+		$query->where[1]['conditions'][2]['field'] = "DATE_FORMAT(field_data_field_fecha_de_nacimiento.field_fecha_de_nacimiento_value, '%d') = :field_data_field_fecha_de_nacimiento_field_fecha_de_nacimiento_value1";
+		$query->where[1]['conditions'][2]['value'][':field_data_field_fecha_de_nacimiento_field_fecha_de_nacimiento_value1'] = date('d');
+	}
+}
+
+
+
+function gcba_cumpleanos_overlay_paths() {
+  $paths = array(
+    'node/*' => TRUE
+  );
+  return $paths;
+}

@@ -1,0 +1,70 @@
+/* Steve jobs' book */
+
+.animated{
+	-webkit-transition:margin-left 0.2s ease-in-out;
+	-moz-transition:margin-left 0.2s ease-in-out;
+	-o-transition:margin-left 0.2s ease-in-out;
+	-ms-transition:margin-left 0.2s ease-in-out;
+	transition:margin-left 0.2s ease-in-out;
+}
+#page-wrapper {
+	background: none;
+}
+
+#overlay-content {
+	height: 726px;
+	overflow: hidden;
+}
+
+#canvas{
+	width: 1000px;
+	height: 655px;
+	margin: auto;
+	overflow: hidden;
+	position: relative;
+}
+
+#book-zoom{
+	-webkit-transition: -webkit-transform 1s;
+	-moz-transition: -moz-transform 1s;
+	-ms-transition: -ms-transform 1s;
+	-o-transition: -o-transform 1s;
+	transition: transform 1s;
+}
+
+.sj-book{
+	width:1010px;
+	height:655px;
+}
+
+.sj-book-transform div[page="1"] > div, .sj-book-transform div[page="2"] > div{
+	overflow:visible !important;
+}
+
+.sj-book .hard{
+	width:1010px;
+	height:655px;
+	background-color:white;
+	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	-ms-box-shadow:none;
+	box-shadow:none;
+}
+
+.sj-book .page-wrapper{
+	-webkit-perspective:2000px;
+	-moz-perspective: 2000px;
+	-ms-perspective: 2000px;
+	perspective: 2000px;
+}
+
+.sj-book .page-number{
+	color:#999;
+	width:100%;
+	bottom:25px;
+	position:absolute;
+	display:block;
+	text-align: center;
+	line-height:30px;
+	font-size:11px;
+}
